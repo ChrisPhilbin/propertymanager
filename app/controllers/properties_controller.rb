@@ -13,6 +13,15 @@ class PropertiesController < ApplicationController
 		end
 	end
 
+	def edit
+		@property = Property.find(params[:id])
+		if @property.update_attributes(property_params)
+			redirect_to @property
+		else
+			render 'edit'
+		end
+	end
+
 	def show
 		@property = Property.find(params[:id])
 	end

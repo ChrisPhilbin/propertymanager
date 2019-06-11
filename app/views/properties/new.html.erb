@@ -1,0 +1,20 @@
+<%= form_for @property do |f| %>
+
+	<%= f.label :type %><br>
+	<%= f.text_field :type %><br>
+
+	<%= f.label :city %><br>
+	<%= f.text_field :city %><br>
+
+	<%= f.label :state %><br>
+	<%= f.text_field :state %><br>
+
+	<%= f.label :zip %><br>
+	<%= f.text_field :zip %><br>
+
+	<%= f.label :street %><br>
+	<%= f.text_field :street %><br>
+
+	<%= f.submit "Create new property" %>
+
+<% end %>
