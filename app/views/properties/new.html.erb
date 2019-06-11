@@ -1,7 +1,9 @@
 <%= form_for [@landlord, @property] do |f| %>
 
-	<%= f.label :type %><br>
-	<%= f.text_field :type %><br>
+	<%= f.hidden_field :landlord_id, value: @landlord.id %>
+
+	<%= f.label :propertytype %><br>
+	<%= f.text_field :propertytype %><br>
 
 	<%= f.label :city %><br>
 	<%= f.text_field :city %><br>
