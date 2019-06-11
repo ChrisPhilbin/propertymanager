@@ -1,0 +1,15 @@
+
+<%= form_for @landlord do |f| %>
+
+	<%= f.label :firstname %><br>
+	<%= f.text_field :firstname %><br>
+
+	<%= f.label :lastname %><br>
+	<%= f.text_field :lastname %><br>
+
+	<%= f.label :email %><br>
+	<%= f.email_field :email %><br>
+
+	<%= f.submit "Submit changes" %>
+
+<% end %>
