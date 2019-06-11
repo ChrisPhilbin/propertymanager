@@ -1,0 +1,7 @@
+class Property < ApplicationRecord
+
+	belongs_to :landlord
+	has_many :tenants
+
+	validates_presence_of :type, :city, :state, :zip, :street
+end
