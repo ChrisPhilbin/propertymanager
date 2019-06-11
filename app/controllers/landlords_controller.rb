@@ -1,5 +1,14 @@
 class LandlordsController < ApplicationController
 
+	def index
+		redirect_to '/'
+	end
+
+	def show
+		@landlord = Landlord.find(params[:id])
+		# flash[:alert] = "Error: Landlord not found!"
+	end
+
 	def new
 		@landlord = Landlord.new
 	end
