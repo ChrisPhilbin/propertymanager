@@ -2,6 +2,7 @@ class PropertiesController < ApplicationController
 
 	def new
 		@property = Property.new
+		@landlord = Landlord.find(params[:landlord_id])
 	end
 
 	def create

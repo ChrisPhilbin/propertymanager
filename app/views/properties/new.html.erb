@@ -1,4 +1,4 @@
-<%= form_for @property do |f| %>
+<%= form_for [@landlord, @property] do |f| %>
 
 	<%= f.label :type %><br>
 	<%= f.text_field :type %><br>
