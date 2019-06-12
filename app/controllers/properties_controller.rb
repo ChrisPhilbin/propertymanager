@@ -2,6 +2,7 @@ class PropertiesController < ApplicationController
 
 	def index
 		@properties = Property.where(landlord_id: params[:landlord_id])
+		@landlord = Landlord.find(params[:landlord_id])
 	end
 
 	def new
@@ -19,6 +20,10 @@ class PropertiesController < ApplicationController
 	end
 
 	def edit
+		@property = Property.find(params[:id])
+	end
+
+	def update
 		@property = Property.find(params[:id])
 		if @property.update_attributes(property_params)
 			redirect_to @property

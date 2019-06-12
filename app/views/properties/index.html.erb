@@ -1,0 +1,9 @@
+Viewing all properties for <%= @landlord.fullname %><br>
+
+<% @properties.each do |property| %>
+	<%= property.street %><br>
+	<%= property.city %><br>
+	<%= property.state %><br>
+	<%= link_to "Edit property information", edit_landlord_property_path(@landlord, property) %>
+
+<% end %>
