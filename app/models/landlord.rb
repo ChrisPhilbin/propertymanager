@@ -4,8 +4,11 @@ class Landlord < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-	has_many :properties
-	has_many :tenants, through: :properties
+	# has_many :properties
+	# has_many :tenants, through: :properties
+
+	has_many :tenants
+	has_many :properties, through: :tenants
 
 	validates_presence_of :firstname, :lastname
 
