@@ -32,15 +32,17 @@
               <%= link_to "Add a property", new_landlord_property_path(current_landlord), class: "dropdown-item" %>
             </div>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              My Tenants
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">View all tenants</a>
-              <a class="dropdown-item" href="#">Add a tenant</a>
-            </div>
-          </li>
+          <% if params[:controller] == "properties" %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My Tenants
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">View all tenants</a>
+                <a class="dropdown-item" href="#">Add a tenant</a>
+              </div>
+            </li>
+          <% end %>
         </ul>
       </div>
     </nav>    
