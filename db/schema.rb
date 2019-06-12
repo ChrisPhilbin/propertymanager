@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_12_173020) do
+ActiveRecord::Schema.define(version: 2019_06_12_224048) do
 
   create_table "landlords", force: :cascade do |t|
     t.string "firstname"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_06_12_173020) do
     t.string "firstname"
     t.string "lastname"
     t.string "email"
+    t.integer "rent"
     t.index ["landlord_id"], name: "index_tenants_on_landlord_id"
     t.index ["property_id"], name: "index_tenants_on_property_id"
   end

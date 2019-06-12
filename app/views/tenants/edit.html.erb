@@ -1,4 +1,4 @@
-New tenant form
+Edit tenant form
 
 <%= form_for [@landlord, @property, @tenant] do |f| %>
 
@@ -16,8 +16,8 @@ New tenant form
 	<%= f.email_field :email %><br>
 
 	<%= f.label :rent %><br>
-	<%= f.text_field :rent %><br>
+	<%= f.text_field :rent %><br>	
 
-	<%= f.submit "Add new tenant" %>
+	<%= f.submit "Save changes" %>
 
 <% end %>
