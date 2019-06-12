@@ -1,8 +1,12 @@
-<% if landlord_signed_in? %>
+<div align="center">
+	<% if landlord_signed_in? %>
 
-	Welcome, <%= current_landlord.fullname %>
-<% else %>
+		<h2>Welcome, <%= current_landlord.fullname %></h2>
+	
+	<% else %>
 
-Hello, world!
+		<h2>Welcome to the Property Manager app</h2><br>
+		<h3><%= link_to "Sign up", new_landlord_registration_path %> or <%= link_to "log in", new_landlord_session_path %> if you already have an account</h3>
 
-<% end %>
+	<% end %>
+</div>
