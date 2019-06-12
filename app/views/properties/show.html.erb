@@ -1,1 +1,7 @@
-Showing details for <%= @property.street %> owned by <%= @property.landlord.fullname %>
+Showing details for <%= @property.street %> owned by <%= @property.landlord.fullname %><br>
+
+<% @property.tenants.each do |tenant| %>
+
+	<%= link_to "#{tenant.fullname}", landlord_property_tenant_path(@property.landlord, @property, tenant) %><br>
+
+<% end %>

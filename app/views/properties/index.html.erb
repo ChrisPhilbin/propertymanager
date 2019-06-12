@@ -4,6 +4,8 @@ Viewing all properties for <%= @landlord.fullname %><br>
 	<%= property.street %><br>
 	<%= property.city %><br>
 	<%= property.state %><br>
+	Current number of tenants: <%= property.tenants.count %><br>
+	<%= link_to "View property details", landlord_property_path(@landlord, property) %><br>
 	<%= link_to "Edit property information", edit_landlord_property_path(@landlord, property) %><br>
 	<%= link_to "Add tenant to this property", new_landlord_property_tenant_path(@landlord, property) %>
 

@@ -10,7 +10,7 @@ class Tenant < ApplicationRecord
 	accepts_nested_attributes_for :landlord, :property
 
 	def fullname
-		"#{self.firstname} + #{self.lastname}"
+		"#{self.firstname} #{self.lastname}"
 	end
 	
 end

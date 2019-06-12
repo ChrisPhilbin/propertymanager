@@ -1,3 +1,58 @@
-Viewing details for <%= @landlord.fullname %><br>
+<div align="center"><h2>Viewing details for <%= @landlord.fullname %></h2> 
+	<%= link_to "Edit my details", edit_landlord_path(@landlord) %></div>
+<br>
+<div class="row">
+	<div class="col-md-6">
+		<h3>Properties at-a-glance</h3>
 
-<%= link_to "Edit my details", edit_landlord_path(@landlord) %>
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th scope="col">Property ID</th>
+		      <th scope="col">Street</th>
+		      <th scope="col">City</th>
+		      <th scope="col">State</th>
+		      <th scope="col"># of tenants</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	<% @landlord.properties.uniq.take(5).each do |property| %>
+		    <tr>
+		      <th scope="row"><%= property.id %></th>
+		      <td><%= property.street %></td>
+		      <td><%= property.city %></td>
+		      <td><%= property.state %></td>
+		      <td><%= property.tenants.count %></td>
+		    </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	</div>
+
+	<div class="col-md-6">
+		<h3>Tenants at-a-glance</h3>
+
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th scope="col">Tenant ID</th>
+		      <th scope="col">Lives in property #</th>
+		      <th scope="col">First name</th>
+		      <th scope="col">Last name</th>
+		      <th scope="col">Email</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	<% @landlord.tenants.take(5).each do |tenant| %>
+		    <tr>
+		      <th scope="row"><%= tenant.id %></th>
+		      <td><%= tenant.property_id %></td>
+		      <td><%= tenant.firstname %></td>
+		      <td><%= tenant.lastname %></td>
+		      <td><%= tenant.email %></td>
+		    </tr>
+		    <% end %>
+		  </tbody>
+		</table>		
+	</div>
+</div>

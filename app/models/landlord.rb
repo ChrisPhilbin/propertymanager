@@ -10,6 +10,8 @@ class Landlord < ApplicationRecord
 	has_many :tenants
 	has_many :properties, through: :tenants
 
+	has_many :properties
+
 	validates_presence_of :firstname, :lastname
 
 	def fullname

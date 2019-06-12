@@ -4,7 +4,7 @@ class Property < ApplicationRecord
 	# has_many :tenants
 
 	has_many :tenants
-	has_many :landlords, through: :tenants
+	# has_many :landlords, through: :tenants
 
 	validates_presence_of :propertytype, :city, :state, :zip, :street
 
