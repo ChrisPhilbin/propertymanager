@@ -4,6 +4,7 @@ Viewing all properties for <%= @landlord.fullname %><br>
 	<%= property.street %><br>
 	<%= property.city %><br>
 	<%= property.state %><br>
-	<%= link_to "Edit property information", edit_landlord_property_path(@landlord, property) %>
+	<%= link_to "Edit property information", edit_landlord_property_path(@landlord, property) %><br>
+	<%= link_to "Add tenant to this property", new_landlord_property_tenant_path(@landlord, property) %>
 
 <% end %>

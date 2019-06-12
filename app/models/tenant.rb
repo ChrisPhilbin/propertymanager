@@ -5,7 +5,9 @@ class Tenant < ApplicationRecord
 	belongs_to :landlord
 	belongs_to :property
 
-	validates_precence_of :firstname, :lastname, :email
+	validates_presence_of :firstname, :lastname, :email
+
+	accepts_nested_attributes_for :landlord, :property
 
 	def fullname
 		"#{self.firstname} + #{self.lastname}"

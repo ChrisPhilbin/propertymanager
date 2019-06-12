@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   devise_for :landlords
 
-  resources :tenants
   resources :landlords do
-  	resources :properties
+  	resources :properties do
+  		resources :tenants
+  	end
   end
 
   get '/' => 'static#index'
