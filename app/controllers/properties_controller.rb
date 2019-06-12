@@ -1,5 +1,9 @@
 class PropertiesController < ApplicationController
 
+	def index
+		@properties = Property.where(landlord_id: params[:landlord_id])
+	end
+
 	def new
 		@property = Property.new
 		@landlord = Landlord.find(params[:landlord_id])
