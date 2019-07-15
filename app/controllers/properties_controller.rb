@@ -38,7 +38,13 @@ class PropertiesController < ApplicationController
 
 	def destroy
 		@property = Property.find(params[:id])
+		@landlord = Landlord.find(params[:landlord_id])
 		@property.destroy
+
+		respond_to do |format|
+			format.html { redirect_to landlord_path(@landlord) }
+			format.xml  { head :ok }
+    	end
 	end
 
 	private
