@@ -30,6 +30,10 @@ class TenantsController < ApplicationController
 		end		
 	end
 
+	def show
+		@tenant = Tenant.find(params[:id])
+	end
+
 	private
 
 	def tenant_params
