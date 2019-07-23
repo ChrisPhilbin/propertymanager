@@ -20,3 +20,29 @@
 	<%= f.submit "Create new property" %>
 
 <% end %>
+
+<div id="newProperty">
+	<div id="propertyType"></div>
+	<div id="propertycity"></div>
+	<div id="propertystate"></div>
+	<div id="propertyZip"></div>
+	<div id="propertyStreet"></div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+	$(function () {
+		$('form').submit(function(event) {
+			event.preventDefault();
+    		var values = $(this).serialize();
+    		var posting = $.post('/properties', values);
+    		posting.done(function(data) {
+    			var property = data;
+      			$("#properyType").text(property["type"]);
+      			$("#propertyCity").text(property["city"]);
+      			$("#propertyState").text(property["state"]);
+      			$("#propertyZip").text(property["zip"]);
+      			$("#propertyStreet").text(property["street"]);
+    		});
+  		});
+	});
+</script>
