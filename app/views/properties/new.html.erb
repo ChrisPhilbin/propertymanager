@@ -34,6 +34,7 @@
 		$('form').submit(function(event) {
 			event.preventDefault();
     		var values = $(this).serialize();
+    		console.log(values);
     		var posting = $.post('/properties', values);
     		posting.done(function(data) {
     			var property = data;
