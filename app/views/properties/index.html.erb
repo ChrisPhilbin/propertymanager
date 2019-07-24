@@ -1,12 +1,24 @@
 Viewing all properties for <%= @landlord.fullname %><br>
 
-<% @properties.each do |property| %>
-	<%= property.street %><br>
-	<%= property.city %><br>
-	<%= property.state %><br>
-	Current number of tenants: <%= property.tenants.count %><br>
-	<%= link_to "View property details", landlord_property_path(@landlord, property) %><br>
-	<%= link_to "Edit property information", edit_landlord_property_path(@landlord, property) %><br>
-	<%= link_to "Add tenant to this property", new_landlord_property_tenant_path(@landlord, property) %>
 
+<% @properties.each do |property| %>
+	<div class="card" style="width: 18rem;">
+	  <img class="card-img-top" src="..." alt="img">
+	  <div class="card-body">
+	    <h5 class="card-title"><%= property.street %></h5>
+	    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+	    <%= link_to "Edit details", edit_landlord_property_path(@landlord, property), class: "btn btn-primary" %>
+	  </div>
+	</div>
 <% end %>
+
+<!-- # <% @properties.each do |property| %>
+# 	<%= property.street %><br>
+# 	<%= property.city %><br>
+# 	<%= property.state %><br>
+# 	Current number of tenants: <%= property.tenants.count %><br>
+# 	<%= link_to "View property details", landlord_property_path(@landlord, property) %><br>
+# 	<%= link_to "Edit property information", edit_landlord_property_path(@landlord, property) %><br>
+# 	<%= link_to "Add tenant to this property", new_landlord_property_tenant_path(@landlord, property) %>
+
+# <% end %> -->
