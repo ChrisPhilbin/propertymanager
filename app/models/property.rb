@@ -10,4 +10,6 @@ class Property < ApplicationRecord
 
 	accepts_nested_attributes_for :landlord
 
+	has_one_attached :property_photo
+
 end
