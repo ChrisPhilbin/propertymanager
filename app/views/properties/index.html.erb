@@ -1,16 +1,21 @@
-Viewing all properties for <%= @landlord.fullname %><br>
+<div align="center"><h3>Viewing all properties for <%= @landlord.fullname %></h3></div><br>
 
 
-<% @properties.each do |property| %>
-	<div class="card" style="width: 18rem;">
-	  <img class="card-img-top" src="..." alt="img">
-	  <div class="card-body">
-	    <h5 class="card-title"><%= property.street %></h5>
-	    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-	    <%= link_to "Edit details", edit_landlord_property_path(@landlord, property), class: "btn btn-primary" %>
+<div class="row">
+	<% @properties.each do |property| %>
+
+	  <div class="col-sm-3" align="center">
+		<div class="card" style="width: 18rem;">
+		  <img class="card-img-top" src="..." alt="img">
+		  <div class="card-body">
+		    <h5 class="card-title"><%= property.street %></h5>
+		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+		    <%= link_to "Edit details", edit_landlord_property_path(@landlord, property), class: "btn btn-primary" %>
+		  </div>
+		</div>
 	  </div>
-	</div>
-<% end %>
+	<% end %>
+</div>
 
 <!-- # <% @properties.each do |property| %>
 # 	<%= property.street %><br>
