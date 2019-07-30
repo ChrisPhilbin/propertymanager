@@ -6,7 +6,9 @@
 
 	  <div class="col-sm-3" align="center">
 		<div class="card" style="width: 18rem;">
-		  <img class="card-img-top" src="..." alt="img">
+		  <% if property.property_photo.attached? %>
+		  	<img src="<%= (url_for(property.property_photo)) %>" class="card-img-top">
+		  <% end %>
 		  <div class="card-body">
 		    <h5 class="card-title"><%= property.street %></h5>
 		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

@@ -1,3 +1,15 @@
 Showing details for:
 
 <%= @tenant.fullname %>
+
+
+
+<div id="fullName"></div>
+<script type="text/javascript" charset="utf-8">
+
+
+	$(function () {
+		let request = $.get('/landlords/' + <%= "#{@landlord.id}" %> + '/properties/' + <%= "#{@property.id}" %> + '/tenants/' + <%= "#{id}" %> + '.json' %>)
+		debugger;
+	}
+</script>
