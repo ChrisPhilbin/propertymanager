@@ -7,5 +7,6 @@ Showing details for:
 
 
 <script type="text/javascript" charset="utf-8">
-		let request = $.getJSON('/landlords/' + <%= "#{params['landlord_id']}" %> + '/properties/' + <%= "#{params['property_id']}" %> + '/tenants/' + <%= "#{params['id']}" %> + '.json')
+		let request = $.getJSON("/landlords/" + <%= "#{params['landlord_id']}" %> + "/properties/" + <%= "#{params['property_id']}" %> + "/tenants/" + <%= "#{params['id']}" %> + ".json")
+		let fullname = "request[fullname] + request[lastname]";
 </script>
