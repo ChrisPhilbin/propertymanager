@@ -1,12 +1,26 @@
-Showing details for:
+<!-- Showing details for:
 
 <%= @tenant.fullname %>
-
+ -->
 
 <div id="fullName"></div>
 
 
 <script type="text/javascript" charset="utf-8">
-		let request = $.getJSON("/landlords/" + <%= "#{params['landlord_id']}" %> + "/properties/" + <%= "#{params['property_id']}" %> + "/tenants/" + <%= "#{params['id']}" %> + ".json")
-		let fullname = "request[fullname] + request[lastname]";
+
+
+	function Tenant(rawJson) {
+		this.firstName = rawJson.firstname
+		this.lastName = rawJson.lastname 
+	};
+
+	Tenant.prototype.name = function() {
+		return this.firstName + " " + this.lastName;
+	};
+
+	let request = $.getJSON('http://localhost:3000/landlords/<%= "#{params['landlord_id']}" %>/properties/<%= "#{params['property_id']}" %>/tenants/<%= "#{params['id']}" %>.json', function(data) {
+		let tenant = new Tenant(data);
+		$("#fullName").text('Showing details for ' + tenant.name);
+	});
+
 </script>
