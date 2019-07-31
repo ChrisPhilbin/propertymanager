@@ -20,7 +20,7 @@
 
 	let request = $.getJSON('http://localhost:3000/landlords/<%= "#{params['landlord_id']}" %>/properties/<%= "#{params['property_id']}" %>/tenants/<%= "#{params['id']}" %>.json', function(data) {
 		let tenant = new Tenant(data);
-		$("#fullName").text('Showing details for ' + tenant.name);
+		$("#fullName").text('Showing details for ' + tenant.name());
 	});
 
 </script>
