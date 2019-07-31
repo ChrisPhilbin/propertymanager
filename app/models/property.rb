@@ -12,4 +12,8 @@ class Property < ApplicationRecord
 
 	has_one_attached :property_photo
 
+	def fulladdress
+		"#{self.street} #{self.city}, #{self.state} #{self.zip}"
+	end
+
 end
