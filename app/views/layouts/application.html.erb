@@ -54,6 +54,7 @@
         </ul>
       </div>
     </nav>    
+    <div id="main-div">
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
@@ -63,5 +64,6 @@
     <% end %>
     
     <%= yield %>
+    </div>
   </body>
 </html>
