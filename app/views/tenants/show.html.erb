@@ -5,16 +5,18 @@ Lives in: <%= link_to @tenant.property.fulladdress, landlord_property_path %>
 <!-- getting json from tenant #show method and creating an object with the json and concatenating their first name and last name by using a method on the prototype  -->
 <script type="text/javascript" charset="utf-8">
 
-
+	//define what a tenant object is
 	function Tenant(rawJson) {
 		this.firstName = rawJson.firstname
 		this.lastName = rawJson.lastname 
 	};
 
+	//add a method #name to each and every instance of a tenant
 	Tenant.prototype.name = function() {
 		return this.firstName + " " + this.lastName;
 	};
 
+	//create a new request to get json from the api end point of the rails app and pass the json into the above javascript to create a new tenant object with returned json... finally append the new object to the DOM.
 	let request = $.getJSON('http://localhost:3000/landlords/<%= "#{params['landlord_id']}" %>/properties/<%= "#{params['property_id']}" %>/tenants/<%= "#{params['id']}" %>.json', function(data) {
 		let tenant = new Tenant(data);
 		$("#fullName").text('Showing details for ' + tenant.name());
