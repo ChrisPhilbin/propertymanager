@@ -11,6 +11,7 @@ class PropertiesController < ApplicationController
 	end
 
 	def create
+		binding.pry
 		@property = Property.new(property_params)
 		if @property.save
 			render json: @property, status: 201
@@ -35,6 +36,11 @@ class PropertiesController < ApplicationController
 
 	def show
 		@property = Property.find(params[:id])
+		@tenants = @property.tenants
+		respond_to do |format|
+			format.html  { render 'show'}
+			format.json  { render json: [@property, @tenants], status: 201}
+		end
 	end
 
 	def destroy
