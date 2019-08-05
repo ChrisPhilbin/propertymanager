@@ -5,3 +5,9 @@ Showing details for <%= @property.street %> owned by <%= @property.landlord.full
 	<%= link_to "#{tenant.fullname}", landlord_property_tenant_path(@property.landlord, @property, tenant) %><br>
 
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+
+	request = $.getJSON('http://localhost:3000/landlords/<%= "#{params['landlord_id']}" %>/properties/<%= "#{params['id']}" %>.json')
+	debugger;
+</script>
