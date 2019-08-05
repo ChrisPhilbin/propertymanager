@@ -1,3 +1,7 @@
+<p id="address"></p>
+
+
+
 Showing details for <%= @property.street %> owned by <%= @property.landlord.fullname %><br>
 
 <% @property.tenants.each do |tenant| %>
@@ -8,6 +12,13 @@ Showing details for <%= @property.street %> owned by <%= @property.landlord.full
 
 <script type="text/javascript" charset="utf-8">
 
-	request = $.getJSON('http://localhost:3000/landlords/<%= "#{params['landlord_id']}" %>/properties/<%= "#{params['id']}" %>.json')
-	debugger;
+	//make inital jquery http get request to api end point of rails app
+	request = $.getJSON('http://localhost:3000/landlords/<%= "#{params['landlord_id']}" %>/properties/<%= "#{params['id']}" %>.json', function(data) {
+		//assigned all returned json to property
+		let result = data;
+		let property = result[0];
+		let tenantArr = result[1];
+		debugger;
+		$("#address").text('Showing details for ' + property.street);
+	});
 </script>
