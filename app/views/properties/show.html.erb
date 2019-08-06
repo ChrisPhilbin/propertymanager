@@ -12,13 +12,18 @@ Showing details for <%= @property.street %> owned by <%= @property.landlord.full
 
 <script type="text/javascript" charset="utf-8">
 
+	//add code for creating address objects
+
+	//add method for concatenating all address componenets into one
+
+	//add code for creating tenant objects eg. tenant.firstname, tenant.lastname, etc...
+
 	//make inital jquery http get request to api end point of rails app
 	request = $.getJSON('http://localhost:3000/landlords/<%= "#{params['landlord_id']}" %>/properties/<%= "#{params['id']}" %>.json', function(data) {
-		//assigned all returned json to property
+		//assigned all returned json to result
 		let result = data;
 		let property = result[0];
 		let tenantArr = result[1];
-		debugger;
 		$("#address").text('Showing details for ' + property.street);
 	});
 </script>
