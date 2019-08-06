@@ -12,9 +12,18 @@ Showing details for <%= @property.street %> owned by <%= @property.landlord.full
 
 <script type="text/javascript" charset="utf-8">
 
-	//add code for creating address objects
+	//function to create a property object
+	function Property(rawJson) {
+		this.street = rawJson.street;
+		this.city = rawJson.city;
+		this.state = rawJson.state;
+		this.zip = rawJson.zip;
+	};
 
-	//add method for concatenating all address componenets into one
+	//add method on to each property object... calling #fullAddress will return concatenated string
+	Property.prototype.fullAddress = function() {
+		return this.street + " " + this.city + " " + this.state + " " + this.zip;
+	};
 
 	//add code for creating tenant objects eg. tenant.firstname, tenant.lastname, etc...
 
@@ -22,8 +31,9 @@ Showing details for <%= @property.street %> owned by <%= @property.landlord.full
 	request = $.getJSON('http://localhost:3000/landlords/<%= "#{params['landlord_id']}" %>/properties/<%= "#{params['id']}" %>.json', function(data) {
 		//assigned all returned json to result
 		let result = data;
-		let property = result[0];
+		let p = new Property(result[0]);
+		debugger;
 		let tenantArr = result[1];
-		$("#address").text('Showing details for ' + property.street);
+		$("#address").text('Showing details for ' + p.fullAddress());
 	});
 </script>
