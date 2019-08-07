@@ -47,7 +47,6 @@
 		      <th scope="col">First name</th>
 		      <th scope="col">Last name</th>
 		      <th scope="col">Email</th>
-		      <th scope="col">View details</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -59,7 +58,6 @@
 		      <td><%= tenant.firstname %></td>
 		      <td><%= tenant.lastname %></td>
 		      <td><%= tenant.email %></td>
-		      <td><%= link_to "Details", landlord_property_tenant_path(@landlord, tenant.property_id, tenant) %>
 		    </tr>
 		    <% end %>
 		  </tbody>
