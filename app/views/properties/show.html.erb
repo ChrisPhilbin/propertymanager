@@ -1,14 +1,7 @@
-<p id="address"></p>
+<h1><p id="address"></p></h1>
 
+<div id="tenants"></div>
 
-
-Showing details for <%= @property.street %> owned by <%= @property.landlord.fullname %><br>
-
-<% @property.tenants.each do |tenant| %>
-
-	<%= link_to "#{tenant.fullname}", landlord_property_tenant_path(@property.landlord, @property, tenant) %><br>
-
-<% end %>
 
 <script type="text/javascript" charset="utf-8">
 
@@ -28,9 +21,12 @@ Showing details for <%= @property.street %> owned by <%= @property.landlord.full
 		//assigned all returned json to result
 		let result = data;
 		let p = new Property(result[0]);
-		debugger;
 		let tenantArr = result[1];
-		$("#address").text('Showing details for ' + p.fullAddress());
+		debugger;
+		$("#address").text('Showing details for ' + p.street);
+		for (var i = 0; i < tenantArr.length; i++) {
+    		$("#tenants").text(tenantArr[i].firstname);
+    	}
 	});
 	//How do you iterate thru array and append each individual array item/object to them DOM?
 </script>
