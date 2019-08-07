@@ -1,6 +1,20 @@
-<h1><p id="address"></p></h1>
+<div align="center"><h1><p id="headerAddress"></p></h1></div>
 
-<div id="tenants"></div>
+
+<div class="row">
+	<div class="col-md-4" id="propertyDetails">
+
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-4" id="tenantList">
+
+	</div>
+	<div class="col-md-6" id="propertyImage">
+
+	</div>
+</div>
 
 
 <script type="text/javascript" charset="utf-8">
@@ -16,19 +30,21 @@
 		return this.street + " " + this.city + " " + this.state + " " + this.zip;
 	};
 
-	//make inital jquery http get request to api end point of rails app
 	request = $.getJSON('http://localhost:3000/landlords/<%= "#{params['landlord_id']}" %>/properties/<%= "#{params['id']}" %>.json', function(data) {
-		//assigned all returned json to result
+
 		let result = data;
-		let p = new Property(result[0]);
+		let rental = new Property(result[0]);
 		let tenantArr = result[1];
 
-		let elements = $();
+		let tenantElements = $();
     
-		$("#address").text('Showing details for ' + p.street);
+		$("#headerAddress").text('Showing details for ' + rental.street);
 		for (var i = 0; i < tenantArr.length; i++) {
-			elements = elements.add('<div>'+tenantArr[i].firstname+'</div>');
+			tenantElements = tenantElements.add('<div>'+tenantArr[i].firstname+'</div>');
     	}
-    	$("#tenants").append(elements);
+
+    	//how do you link to each tenant as it iterates thru the array?
+
+    	$("#tenantList").append(elements);
 	});
 </script>
