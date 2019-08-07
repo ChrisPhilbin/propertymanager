@@ -16,3 +16,9 @@
 #main-div {
 	padding: 25px;
 }
+
+.jumbotron {
+	height: 600px;
+	background-image: asset-url('apartment_complex.jpg');
+	background-size: cover;
+}

@@ -1,0 +1,44 @@
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Property Manager</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <% if landlord_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "My Dashboard", landlord_path(current_landlord), class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              My Properties
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to "View all properties", landlord_properties_path(current_landlord), class: "dropdown-item" %>
+              <%= link_to "Add a property", new_landlord_property_path(current_landlord), class: "dropdown-item" %>
+            </div>
+          </li>
+          <% end %>
+          <% if params[:controller] == "properties" %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My Tenants
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">View all tenants</a>
+                <a class="dropdown-item" href="#">Add a tenant</a>
+              </div>
+            </li>
+          <% end %>
+
+          <% if landlord_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Logout", destroy_landlord_session_path, class: "nav-link" %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>

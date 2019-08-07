@@ -12,7 +12,6 @@ Showing details for <%= @property.street %> owned by <%= @property.landlord.full
 
 <script type="text/javascript" charset="utf-8">
 
-	//function to create a property object
 	function Property(rawJson) {
 		this.street = rawJson.street;
 		this.city = rawJson.city;
@@ -20,12 +19,9 @@ Showing details for <%= @property.street %> owned by <%= @property.landlord.full
 		this.zip = rawJson.zip;
 	};
 
-	//add method on to each property object... calling #fullAddress will return concatenated string
 	Property.prototype.fullAddress = function() {
 		return this.street + " " + this.city + " " + this.state + " " + this.zip;
 	};
-
-	//add code for creating tenant objects eg. tenant.firstname, tenant.lastname, etc...
 
 	//make inital jquery http get request to api end point of rails app
 	request = $.getJSON('http://localhost:3000/landlords/<%= "#{params['landlord_id']}" %>/properties/<%= "#{params['id']}" %>.json', function(data) {
@@ -36,4 +32,5 @@ Showing details for <%= @property.street %> owned by <%= @property.landlord.full
 		let tenantArr = result[1];
 		$("#address").text('Showing details for ' + p.fullAddress());
 	});
+	//How do you iterate thru array and append each individual array item/object to them DOM?
 </script>

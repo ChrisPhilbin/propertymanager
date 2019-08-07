@@ -1,12 +1,15 @@
-<div align="center">
-	<% if landlord_signed_in? %>
+<div class="jumbotron">
 
-		<h2>Welcome, <%= current_landlord.fullname %></h2>
-	
-	<% else %>
+	<div align="center">
+		<% if landlord_signed_in? %>
 
-		<h2>Welcome to the Property Manager app</h2><br>
-		<h3><%= link_to "Sign up", new_landlord_registration_path %> or <%= link_to "log in", new_landlord_session_path %> if you already have an account</h3>
+			<h2>Welcome, <%= current_landlord.fullname %></h2>
+		
+		<% else %>
 
-	<% end %>
+			<h1>Welcome to the Property Manager</h1><br>
+			<h3><%= link_to "Sign up", new_landlord_registration_path, class: "btn btn-primary btn-lg" %> or <%= link_to "log in", new_landlord_session_path, class: "btn btn-primary btn-lg" %> if you already have an account</h3>
+
+		<% end %>
+	</div>
 </div>
