@@ -22,12 +22,13 @@
 		let result = data;
 		let p = new Property(result[0]);
 		let tenantArr = result[1];
-		let arrLength = tenantArr.length;
-		debugger;
+
+		let elements = $();
+    
 		$("#address").text('Showing details for ' + p.street);
-		for (var i = 0; i < arrLength; i++) {
-    		$("#tenants").text(tenantArr[i].firstname);
+		for (var i = 0; i < tenantArr.length; i++) {
+			elements = elements.add('<div>'+tenantArr[i].firstname+'</div>');
     	}
+    	$("#tenants").append(elements);
 	});
-	//How do you iterate thru array and append each individual array item/object to them DOM?
 </script>
