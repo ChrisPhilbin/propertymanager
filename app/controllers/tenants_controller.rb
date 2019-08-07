@@ -38,6 +38,11 @@ class TenantsController < ApplicationController
 		end
 	end
 
+	def all
+		@landlord = Landlord.find(params[:id])
+		@tenants = Tenant.where(landlord_id: params[:id])
+	end
+
 	private
 
 	def tenant_params
