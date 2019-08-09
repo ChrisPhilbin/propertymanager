@@ -40,11 +40,10 @@
     
 		$("#headerAddress").text('Showing details for ' + rental.street);
 		for (var i = 0; i < tenantArr.length; i++) {
-			tenantElements = tenantElements.add('<div>'+tenantArr[i].firstname+'</div>');
+			tenantElements = tenantElements.add('<div>'+'<a href="/landlords/'+tenantArr[i].landlord_id+'/properties/'+tenantArr[i].property_id+'/tenants/'+tenantArr[i].id+'">'+tenantArr[i].firstname+'</a></div>');
     	}
-
     	//how do you link to each tenant as it iterates thru the array?
-    	//how do you append individual property attributes to the DOM?
+    	//use old school href tag
 
     	$("#tenantList").append(tenantElements);
 	});
