@@ -15,6 +15,7 @@
 		      <th scope="col">State</th>
 		      <th scope="col"># of tenants</th>
 		      <th scope="col">View details</th>
+		      <th scope="col">Add tenant</th>
 		      <th scope="col">Remove</th>
 		    </tr>
 		  </thead>
@@ -27,6 +28,7 @@
 		      <td><%= property.state %></td>
 		      <td><%= property.tenants.count %></td>
 		      <td><%= link_to "Details", landlord_property_path(@landlord, property) %></td>
+		      <td><%= link_to "Add", new_landlord_property_tenant_path(@landlord, property) %></td>
 		      <td><%= link_to "Remove", landlord_property_path(@landlord, property),
             data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
 		    </tr>
