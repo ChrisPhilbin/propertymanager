@@ -1,7 +1,25 @@
 Showing all tenants for <%= @landlord.fullname %><br />
 
-<% @tenants.each do |tenant| %>
+<div id="tenants">
 
-	<%= tenant.fullname %><br />
+</div>
 
-<% end %>
+<script type="text/javascript" charset="utf-8">
+
+	request = $.getJSON('http://localhost:3000/landlords/<%= "#{params['id']}" %>/tenants/all.json', function(data) {
+
+		let result = data;
+		let tenantArr = result[1]
+
+		// debugger;
+
+		let tenantElements = $();
+    
+		for (var i = 0; i < tenantArr.length; i++) {
+			tenantElements = tenantElements.add('<div>'+'<a href="/landlords/'+tenantArr[i].landlord_id+'/properties/'+tenantArr[i].property_id+'/tenants/'+tenantArr[i].id+'">'+tenantArr[i].firstname+'</a></div>');
+   	}
+
+   	$("#tenants").append(tenantElements);
+	});
+
+</script>
