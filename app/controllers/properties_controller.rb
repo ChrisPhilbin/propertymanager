@@ -1,5 +1,7 @@
 class PropertiesController < ApplicationController
 
+	before_action :authenticate_landlord!
+
 	def index
 		@properties = Property.where(landlord_id: params[:landlord_id])
 		@landlord = Landlord.find(params[:landlord_id])
@@ -56,6 +58,6 @@ class PropertiesController < ApplicationController
 	private
 
 	def property_params
-		params.require(:property).permit(:propertytype, :city, :state, :zip, :street, :landlord_id, :property_photo)
+		params.require(:property).permit(:propertytype, :city, :state, :zip, :street, :landlord_id, :photo)
 	end
 end
