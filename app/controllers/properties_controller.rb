@@ -15,8 +15,8 @@ class PropertiesController < ApplicationController
 	def create
 		@property = Property.new(property_params)
 		if @property.save
-			render json: @property, status: 201
-			# redirect_to landlord_property_path(@property)
+			# render json: @property, status: 201
+			redirect_to landlord_properties_path(current_landlord)
 		else
 			render 'new'
 		end
