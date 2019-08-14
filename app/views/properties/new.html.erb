@@ -49,11 +49,11 @@
     		posting.done(function(data) {
     			var property = data;
     			$("#propertyPreview").text('Previewing details for...')
-      			$("#properyType").text(property["type"]);
-      			$("#propertyCity").text(property["city"]);
-      			$("#propertyState").text(property["state"]);
-      			$("#propertyZip").text(property["zip"]);
-      			$("#propertyStreet").text(property["street"]);
+      			$("#properyType").text('Property type: '+property["type"]);
+      			$("#propertyStreet").text('Street address: '+property["street"]);
+      			$("#propertyCity").text('City: '+property["city"]);
+      			$("#propertyState").text('State: '+property["state"]);
+      			$("#propertyZip").text('Zip code: '+property["zip"]);
     		});
   		});
 	});

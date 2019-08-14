@@ -1,5 +1,7 @@
 class TenantsController < ApplicationController
 
+	before_action :authenticate_landlord!
+
 	def new
 		@tenant = Tenant.new
 		@landlord = Landlord.find(params[:landlord_id])
@@ -9,7 +11,7 @@ class TenantsController < ApplicationController
 	def create
 		@tenant = Tenant.new(tenant_params)
 		if @tenant.save
-			redirect_to '/'
+			render json: @tenant, status: 201
 		else
 			render 'new'
 		end

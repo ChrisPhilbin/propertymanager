@@ -6,8 +6,8 @@
 
 	  <div class="col-sm-3" align="center">
 		<div class="card" style="width: 18rem;">
-		  <% if property.property_photo.attached? %>
-		  	<img src="<%= (url_for(property.property_photo)) %>" class="card-img-top">
+		  <% if property.photo.attached? %>
+		  	<img src="<%= (url_for(property.photo)) %>" class="card-img-top">
 		  <% end %>
 		  <div class="card-body">
 		    <h5 class="card-title"><%= property.street %></h5>

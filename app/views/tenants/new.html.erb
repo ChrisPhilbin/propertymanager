@@ -1,23 +1,63 @@
-New tenant form
 
-<%= form_for [@landlord, @property, @tenant] do |f| %>
+<div class="row">
 
-	<%= f.hidden_field :landlord_id, value: @landlord.id %>
+	<div class="col-md-5">
 
-	<%= f.hidden_field :property_id, value: @property.id %>
+	</div>
 
-	<%= f.label :firstname %><br>
-	<%= f.text_field :firstname %><br>
+	<div class="col-md-2">
 
-	<%= f.label :lastname %><br>
-	<%= f.text_field :lastname %><br>
+		<h3> Create a new tenant </h3>
 
-	<%= f.label :email %><br>
-	<%= f.email_field :email %><br>
+		<%= form_for [@landlord, @property, @tenant] do |f| %>
 
-	<%= f.label :rent %><br>
-	<%= f.text_field :rent %><br>
+			<%= f.hidden_field :landlord_id, value: @landlord.id %>
 
-	<%= f.submit "Add new tenant" %>
+			<%= f.hidden_field :property_id, value: @property.id %>
 
-<% end %>
+			<%= f.label :firstname, "First name" %><br>
+			<%= f.text_field :firstname, :class => "form-control" %><br>
+
+			<%= f.label :lastname, "Last name" %><br>
+			<%= f.text_field :lastname, :class => "form-control" %><br>
+
+			<%= f.label :email, "Email address" %><br>
+			<%= f.email_field :email, :class => "form-control" %><br>
+
+			<%= f.label :rent, "Monthly rent" %><br>
+			<%= f.text_field :rent, :class => "form-control" %><br>	
+
+			<%= f.submit "Submit", :class => "btn btn-primary mb-2" %>
+
+		<% end %>
+
+	</div>
+
+	<div class="col-md-5">
+		<div class="tenantPreview">
+			<div class="tenantFirstname"></div>
+			<div class="tenantLastname"></div>
+			<div class="tenantEmail"></div>
+			<div class="tenantRent"></div>
+		</div>
+	</div>
+
+</div>
+
+<script type="text/javascript" charset="utf-8">
+	$(function () {
+		$('form').submit(function(event) {
+			event.preventDefault();
+    		var values = $(this).serialize();
+    		var posting = $.post('/landlords/' + <%= "#{@landlord.id}" %> + '/properties/' + <%= "#{@property.id}" %> + '/tenants', values);
+    		posting.done(function(data) {
+    			var tenant = data;
+    			$("#tenantPreview").text('Previewing details for...')
+      			$("#tenantFirstname").text('Tenant first name: '+tenant["firstname"]);
+      			$("#tenantLastname").text('Tenant last name: '+tenant["lastname"]);
+      			$("#tenantEmail").text('Tenant email address: '+tenant["email"]);
+      			$("#tenantRent").text('Tenant monthly rent: '+tenant["rent"]);
+    		});
+  		});
+	});
+</script>

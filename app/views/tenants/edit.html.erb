@@ -1,23 +1,40 @@
-Edit tenant form
 
-<%= form_for [@landlord, @property, @tenant] do |f| %>
+<div class="row">
 
-	<%= f.hidden_field :landlord_id, value: @landlord.id %>
+	<div class="col-md-5">
 
-	<%= f.hidden_field :property_id, value: @property.id %>
+	</div>
 
-	<%= f.label :firstname %><br>
-	<%= f.text_field :firstname %><br>
+	<div class="col-md-2">
 
-	<%= f.label :lastname %><br>
-	<%= f.text_field :lastname %><br>
+		<h3> Editing details for <%= @tenant.firstname %> </h3>
 
-	<%= f.label :email %><br>
-	<%= f.email_field :email %><br>
+		<%= form_for [@landlord, @property, @tenant] do |f| %>
 
-	<%= f.label :rent %><br>
-	<%= f.text_field :rent %><br>	
+			<%= f.hidden_field :landlord_id, value: @landlord.id %>
 
-	<%= f.submit "Save changes" %>
+			<%= f.hidden_field :property_id, value: @property.id %>
 
-<% end %>
+			<%= f.label :firstname, "First name" %><br>
+			<%= f.text_field :firstname, :class => "form-control" %><br>
+
+			<%= f.label :lastname, "Last name" %><br>
+			<%= f.text_field :lastname, :class => "form-control" %><br>
+
+			<%= f.label :email, "Email address" %><br>
+			<%= f.email_field :email, :class => "form-control" %><br>
+
+			<%= f.label :rent, "Monthly rent" %><br>
+			<%= f.text_field :rent, :class => "form-control" %><br>	
+
+			<%= f.submit "Submit", :class => "btn btn-primary mb-2" %>
+
+		<% end %>
+
+	</div>
+
+	<div class="col-md-5">
+
+	</div>
+
+</div>
