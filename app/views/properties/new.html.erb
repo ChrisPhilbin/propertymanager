@@ -1,35 +1,43 @@
-<%= form_for [@landlord, @property] do |f| %>
+<div class="row">
+	<div class="col-md-3">
+		<%= form_for [@landlord, @property] do |f| %>
 
-	<%= f.hidden_field :landlord_id, value: @landlord.id %>
+			<%= f.hidden_field :landlord_id, value: @landlord.id %>
 
-	<%= f.label :propertytype %><br>
-	<%= f.text_field :propertytype %><br>
+			<%= f.label :propertytype, "Property Type" %><br>
+			<%= f.text_field :propertytype, :class => "form-control" %><br>
 
-	<%= f.label :city %><br>
-	<%= f.text_field :city %><br>
+			<%= f.label :city %><br>
+			<%= f.text_field :city, :class => "form-control"  %><br>
 
-	<%= f.label :state %><br>
-	<%= f.text_field :state %><br>
+			<%= f.label :state %><br>
+			<%= f.text_field :state, :class => "form-control"  %><br>
 
-	<%= f.label :zip %><br>
-	<%= f.text_field :zip %><br>
+			<%= f.label :zip %><br>
+			<%= f.text_field :zip, :class => "form-control"  %><br>
 
-	<%= f.label :street %><br>
-	<%= f.text_field :street %><br>
+			<%= f.label :street %><br>
+			<%= f.text_field :street, :class => "form-control"  %><br>
 
-	<%= f.label "Upload picture" %>
-	<%= f.file_field :property_photo %><br>
+			<%= f.label "Upload picture" %>
+			<%= f.file_field :property_photo, :class => "form-control"  %><br>
 
-	<%= f.submit "Create new property" %>
+			<%= f.submit "Create new property", :class => "btn btn-primary mb-2" %>
 
-<% end %>
+		<% end %>
+	</div>
 
-<div id="newProperty">
-	<div id="propertyType"></div>
-	<div id="propertycity"></div>
-	<div id="propertystate"></div>
-	<div id="propertyZip"></div>
-	<div id="propertyStreet"></div>
+	<div class="col-md-9">
+
+		<div id="newProperty">
+			<h2><div id="propertyPreview"></div></h2>
+			<div id="propertyType"></div>
+			<div id="propertycity"></div>
+			<div id="propertystate"></div>
+			<div id="propertyZip"></div>
+			<div id="propertyStreet"></div>
+		</div>
+	</div>
 </div>
 
 <script type="text/javascript" charset="utf-8">
@@ -40,6 +48,7 @@
     		var posting = $.post('/landlords/' + <%= "#{@landlord.id}" %> + '/properties', values);
     		posting.done(function(data) {
     			var property = data;
+    			$("#propertyPreview").text('Previewing details for...')
       			$("#properyType").text(property["type"]);
       			$("#propertyCity").text(property["city"]);
       			$("#propertyState").text(property["state"]);

@@ -11,7 +11,6 @@ class PropertiesController < ApplicationController
 	end
 
 	def create
-		binding.pry
 		@property = Property.new(property_params)
 		if @property.save
 			render json: @property, status: 201
