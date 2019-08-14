@@ -1,24 +1,14 @@
-# README
+# Property Manager App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a basic app built on the Rails Framework (RoR) that allows landlords to keep track of the properties that they own and the tenants that live within each respective property.
 
-Things you may want to cover:
+Additionally, there exists functionality that renders requests in JSON and uses JS and jQuery to append objects to the DOM to give the app a more interactive and modern feel.
 
-* Ruby version
+In order to use the app, run the follow commands in your terminal:
 
-* System dependencies
+```
+git clone https://github.com/ChrisPhilbin/propertymanager.git
+rails s
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The above will glone the most recent repo from Github and will start the rails server.  You can then fire up your choice of browser and navigate to localhost:3000 to view the site.
