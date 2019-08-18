@@ -34,12 +34,11 @@
 	</div>
 
 	<div class="col-md-5">
-		<div id="tenantPreview">
+			<div id="tenantPreview"></div>
 			<div id="tenantFirstname"></div>
 			<div id="tenantLastname"></div>
 			<div id="tenantEmail"></div>
 			<div id="tenantRent"></div>
-		</div>
 	</div>
 
 </div>
@@ -52,6 +51,7 @@
     		var posting = $.post('/landlords/' + <%= "#{@landlord.id}" %> + '/properties/' + <%= "#{@property.id}" %> + '/tenants', values);
     		posting.done(function(data) {
     			var tenant = data;
+    			console.log(tenant["firstname"])
     			$("#tenantPreview").text('Previewing details for...')
       			$("#tenantFirstname").text('Tenant first name: '+tenant["firstname"]);
       			$("#tenantLastname").text('Tenant last name: '+tenant["lastname"]);

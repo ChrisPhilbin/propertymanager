@@ -44,7 +44,7 @@ class TenantsController < ApplicationController
 		@landlord = Landlord.find(params[:id])
 		@tenants = Tenant.where(landlord_id: params[:id])
 		respond_to do |format|
-			format.json { render json: [@landlord, @tenants], status: 201}
+			format.json { render json: [@landlord, @tenants], status: 200}
 			format.html { render 'all' }
 		end
 	end
