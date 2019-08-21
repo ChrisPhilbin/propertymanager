@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$('.properties.show').ready(function() {
 
 	function Property(rawJson) {
 		this.street = rawJson.street;
@@ -11,11 +11,11 @@ $( document ).ready(function() {
 		return this.street + " " + this.city + " " + this.state + " " + this.zip;
 	};
 
-	let paramsData = document.querySelector('#paramsDiv');
-	let propertyId = paramsData.dataset.prop;
-	let landlordId = paramsData.dataset.landlord;
+	let showPropertiesData = document.querySelector('#showPropertiesDiv');
+	let showPropertiesPropertyId = showPropertiesData.dataset.showPropertiesProp;
+	let showPropertiesLandlordId = showPropertiesData.dataset.showPropertiesLandlord;
 
-	fetch('http://localhost:3000/landlords/'+landlordId+'/properties/'+propertyId+'.json')
+	fetch('http://localhost:3000/landlords/'+showPropertiesLandlordId+'/properties/'+showPropertiesPropertyId+'.json')
 	  .then(
 	    function(response) {
 	      if (response.status !== 201) {
@@ -48,5 +48,5 @@ $( document ).ready(function() {
 	  )
 	  .catch(function(err) {
 	    console.log('Fetch Error :-S', err);
-	  });
+	});
 });

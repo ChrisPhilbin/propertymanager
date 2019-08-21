@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$('.tenants.show').ready(function() {
 
 	function Tenant(rawJson) {
 		this.firstName = rawJson.firstname
@@ -10,12 +10,12 @@ $(document).ready(function() {
 		return this.firstName + " " + this.lastName;
 	};
 
-	tenantData = document.querySelector('#fullName');
-	landlordId = tenantData.dataset.landlord;
-	propertyId = tenantData.dataset.prop;
-	tenantId = tenantData.dataset.tenant;
+	showTenantData = document.querySelector('#fullName');
+	showTenantLandlordId = showTenantData.dataset.showTenantLandlord;
+	showTenantPropertyId = showTenantData.dataset.showTenantProp;
+	showTenantTenantId = showTenantData.dataset.showTenantTenant;
 
-	fetch('http://localhost:3000/landlords/'+landlordId+'/properties/'+propertyId+'/tenants/'+tenantId+'.json')
+	fetch('http://localhost:3000/landlords/'+showTenantLandlordId+'/properties/'+showTenantPropertyId+'/tenants/'+showTenantTenantId+'.json')
 
 	  .then(
 	    function(response) {
