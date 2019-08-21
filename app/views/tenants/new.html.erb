@@ -33,7 +33,7 @@
 
 	</div>
 
-	<div class="col-md-5">
+	<div class="col-md-5" id="tenantDiv" data-landlord="<%= "#{@landlord.id}" %>" data-property="<%= "#{@property.id}" %>">
 			<div id="tenantPreview"></div>
 			<div id="tenantFirstname"></div>
 			<div id="tenantLastname"></div>
@@ -43,7 +43,7 @@
 
 </div>
 
-<script type="text/javascript" charset="utf-8">
+<!-- <script type="text/javascript" charset="utf-8">
 	$(function () {
 		$('form').submit(function(event) {
 			event.preventDefault();
@@ -60,4 +60,4 @@
     		});
   		});
 	});
-</script>
+</script> -->
