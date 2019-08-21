@@ -32,15 +32,17 @@ $( document ).ready(function() {
 
 			let tenantElements = $();
 
-			$("#headerAddress").text('Showing details for ' + rental.street);
+			if (tenantArr <= 0) {
+				tenantElements = tenantElements.add('<h3><strong>It looks like there are no tenants for this property</strong</h3>')
+			} else {
+				$("#headerAddress").text('Showing details for ' + rental.street);
 
-			//rendering a has_many through relationship through JSON using Javascript
-			for (var i = 0; i < tenantArr.length; i++) {
-				tenantElements = tenantElements.add('<div>'+'<a href="/landlords/'+tenantArr[i].landlord_id+'/properties/'+tenantArr[i].property_id+'/tenants/'+tenantArr[i].id+'">'+tenantArr[i].firstname+'</a></div>');
+				//rendering a has_many through relationship through JSON using Javascript
+				for (var i = 0; i < tenantArr.length; i++) {
+					tenantElements = tenantElements.add('<div>'+'<a href="/landlords/'+tenantArr[i].landlord_id+'/properties/'+tenantArr[i].property_id+'/tenants/'+tenantArr[i].id+'">'+tenantArr[i].firstname+'</a></div>');
+				}
 			}
-
-			$("#tenantList").append(tenantElements);
-
+				$("#tenantList").append(tenantElements);
 	      });
 	    }
 	  )
