@@ -25,6 +25,10 @@ fetch('http://localhost:3000/landlords/1/tenants/all.json')
     console.log('Fetch Error :-S', err);
   });
 
+
+
+  
+
 // $(document).ready(function(){getTenantsIndex()});
 // function getTenantsIndex() {
 // 	fetch('http://localhost:3000/landlords/1/tenants/all.json')
