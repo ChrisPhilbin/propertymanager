@@ -1,3 +1,5 @@
+//property show page... works after refreshing page... unsure as to why?
+
 $('.properties.show').ready(function() {
 
 	function Property(rawJson) {
@@ -12,8 +14,8 @@ $('.properties.show').ready(function() {
 	};
 
 	let showPropertiesData = document.querySelector('#showPropertiesDiv');
-	let showPropertiesPropertyId = showPropertiesData.dataset.showPropertiesProp;
-	let showPropertiesLandlordId = showPropertiesData.dataset.showPropertiesLandlord;
+	let showPropertiesPropertyId = showPropertiesData.dataset.showpropertiesprop;
+	let showPropertiesLandlordId = showPropertiesData.dataset.showpropertieslandlord;
 
 	fetch('http://localhost:3000/landlords/'+showPropertiesLandlordId+'/properties/'+showPropertiesPropertyId+'.json')
 	  .then(
@@ -25,6 +27,7 @@ $('.properties.show').ready(function() {
 	      }
 
 	      response.json().then(function(data) {
+	      	//.json() takes the actual http response and extracts the json body tht we need
 
 			let result = data;
 			let rental = new Property(result[0]);
@@ -33,7 +36,7 @@ $('.properties.show').ready(function() {
 			let tenantElements = $();
 
 			if (tenantArr <= 0) {
-				tenantElements = tenantElements.add('<h3><strong>It looks like there are no tenants for this property</strong</h3>')
+				tenantElements = tenantElements.add('<h3><strong>It looks like there are no tenants here!</h3>')
 			} else {
 				$("#headerAddress").text('Showing details for ' + rental.street);
 
@@ -47,6 +50,6 @@ $('.properties.show').ready(function() {
 	    }
 	  )
 	  .catch(function(err) {
-	    console.log('Fetch Error :-S', err);
+	    console.log('Fetch Error', err);
 	});
 });

@@ -1,9 +1,12 @@
 $('.tenants.show').ready(function() {
 
+	// alert('Hello this should only be on the tenants show page');
+
 	function Tenant(rawJson) {
 		this.firstName = rawJson.firstname
 		this.lastName = rawJson.lastname 
 	};
+	//create tenant objects... each tenant object has a first name and a last name
 
 	//add a method #name to each and every instance of a tenant
 	Tenant.prototype.name = function() {
@@ -11,9 +14,9 @@ $('.tenants.show').ready(function() {
 	};
 
 	showTenantData = document.querySelector('#fullName');
-	showTenantLandlordId = showTenantData.dataset.showTenantLandlord;
-	showTenantPropertyId = showTenantData.dataset.showTenantProp;
-	showTenantTenantId = showTenantData.dataset.showTenantTenant;
+	showTenantLandlordId = showTenantData.dataset.showtenantlandlord;
+	showTenantPropertyId = showTenantData.dataset.showtenantprop;
+	showTenantTenantId = showTenantData.dataset.showtenanttenant;
 
 	fetch('http://localhost:3000/landlords/'+showTenantLandlordId+'/properties/'+showTenantPropertyId+'/tenants/'+showTenantTenantId+'.json')
 
