@@ -8,7 +8,6 @@ $('.tenants.new').ready(function() {
 			event.preventDefault();
 	  		var values = $(this).serialize();
 	  		var posting = $.post('/landlords/' + newTenantLandlordId + '/properties/' + newTenantPropertyId + '/tenants', values);
-	  		debugger;
 	  		posting.done(function(data) {
 	  			let tenant = data;
 	  			$("#tenantPreview").text('Previewing details for...')

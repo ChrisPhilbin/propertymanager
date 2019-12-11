@@ -1,6 +1,8 @@
 //property show page... works after refreshing page... unsure as to why?
-
-$('.properties.show').ready(function() {
+$( ".properties.show" ).load( "properties/show.html", function() {
+	
+// } );
+// ('.properties.show').ready(function() {
 
 	function Property(rawJson) {
 		this.street = rawJson.street;
